@@ -4,11 +4,29 @@ const User = ({ setUsers }) => {
   const [name, setName] = useState("");
   const [contact, setContact] = useState("");
   const [role, setRole] = useState("");
+  const [submitted, setSubmitted] = useState(false);
 
   const addUser = (e) => {
     e.preventDefault();
-    setUsers((prev) => [...prev, { name, contact, role }]);
+    let userExists;
+    setUsers((prev) => {
+      userExists = prev.some((user) => user.contact === contact);
+      if (userExists) {
+        alert("You are already registered!");
+        return prev;
+      }
+      return [...prev, { name, contact, role }];
+    });
+    if (userExists) return;
+    else setSubmitted(true);
+    console.log("here");
+
+    let timeout = setTimeout(() => {
+      setSubmitted(false);
+      clearTimeout(timeout);
+    }, 2000);
   };
+
   return (
     <form action="" className="user">
       <h1>User Registration</h1>
@@ -35,6 +53,7 @@ const User = ({ setUsers }) => {
         <option value="Faculty">Faculty</option>
       </select>
       <input type="submit" value="Submit" onClick={addUser} />
+      {submitted && <h3>Submitted!</h3>}
     </form>
   );
 };
