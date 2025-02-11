@@ -18,13 +18,13 @@ const User = ({ setUsers }) => {
       return [...prev, { name, contact, role }];
     });
     if (userExists) return;
-    else setSubmitted(true);
-    console.log("here");
-
-    let timeout = setTimeout(() => {
-      setSubmitted(false);
-      clearTimeout(timeout);
-    }, 2000);
+    else {
+      setSubmitted(true);
+      let timeout = setTimeout(() => {
+        setSubmitted(false);
+        clearTimeout(timeout);
+      }, 2000);
+    }
   };
 
   return (
