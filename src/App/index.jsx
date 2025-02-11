@@ -7,18 +7,18 @@ function App() {
   const [vehicles, setVehicles] = useState([]);
 
   useEffect(() => {
-    const usersString = localStorage.getItem("@users");
-    const vehiclesString = localStorage.getItem("@vehicles");
+    const usersString = window.localStorage.getItem("@users");
+    const vehiclesString = window.localStorage.getItem("@vehicles");
     setUsers(JSON.parse(usersString) || []);
     setVehicles(JSON.parse(vehiclesString) || []);
   }, []);
 
   useEffect(() => {
-    localStorage.setItem("@users", JSON.stringify(users));
+    window.localStorage.setItem("@users", JSON.stringify(users));
   }, [users]);
 
   useEffect(() => {
-    localStorage.setItem("@vehicles", JSON.stringify(vehicles));
+    window.localStorage.setItem("@vehicles", JSON.stringify(vehicles));
   }, [vehicles]);
   return (
     <>
