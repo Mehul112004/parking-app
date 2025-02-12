@@ -24,6 +24,8 @@ function App() {
     <>
       <User setUsers={setUsers} />
       <Vehicle users={users} setVehicles={setVehicles} />
+      <br />
+      <br />
       {vehicles.length > 0 && (
         <table>
           <thead>
