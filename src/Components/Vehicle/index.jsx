@@ -119,23 +119,20 @@ const Vehicle = ({ users, setVehicles }) => {
 
       <br />
 
-      {expiry && expiry.length > 0 && (
-        <div
-          style={{
-            borderWidth: "2px",
-            borderStyle: "dashed",
-            borderColor: "#ddd",
-            padding: 20,
-            margin: "30px auto",
-            maxWidth: "400px",
-          }}
-        >
-          <div>Vehicle : {id}</div>
-          <div>Owner : {owner.name}</div>
-          <div>Expiry : {expiry.toString()}</div>
-        </div>
-      )}
-      {/* <input type="submit" value="Register" onClick={addVehicle} /> */}
+      <div
+        style={{
+          borderWidth: "2px",
+          borderStyle: "dashed",
+          borderColor: "#ddd",
+          padding: 20,
+          margin: "30px auto",
+          maxWidth: "400px",
+        }}
+      >
+        <div>Vehicle : {id}</div>
+        <div>Owner : {owner.name}</div>
+        <div>Expiry : {expiry.toString()}</div>
+      </div>
     </form>
   );
 };
